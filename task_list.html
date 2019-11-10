@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Deadine</th>
+        <th>Urgency</th>
+        <th></th>
+        <th></th>
+        <th>finish</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+        {% for tasks in Task %}
+            <tr>
+                <td>{{tasks.title}}</td>
+                <td>{{tasks.year}}</td>
+                <td>{{tasks.state}}</td>
+                <td><a href="/edit_task/{{tasks.id}}"><button type="button" class="btn btn-primary">Edit</button></a></td>
+                <td><a href="/delete_task/{{tasks.id}}"><button type="button" class="btn btn-primary">Delete</button></a></td>
+                <!--<td><input type="checkbox" /></td>-->
+                <td><a href="/finish/{{tasks.id}}"><button type="button" class="btn btn-primary">Finish</button></a></td>
+            </tr>
+         {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Deadline</th>
+        <th>Urgency</th>
+        <th></th>
+        <th>recover</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+        {% for finish in Finished %}
+        <tr>
+            <td>{{finish.title}}</td>
+            <td>{{finish.year}}</td>
+            <td>{{finish.state}}</td>
+            <td><a href="/delete_finish/{{finish.id}}"><button type="button" class="btn btn-primary">Delete</button></a></td>
+            <td><a href="/task/{{finish.id}}"><button type="button" class="btn btn-primary">recover</button></a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
